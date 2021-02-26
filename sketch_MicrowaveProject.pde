@@ -27,7 +27,7 @@ void setup() {
   
   doorX = 30;
   doorY = 30;
-  doorW = 600;
+  doorW = 560;
   doorH = 440;
   
   screenX = 644;
@@ -60,6 +60,7 @@ void draw() {
   
   fill(screen);
   rect(screenX, screenY, screenW, screenH);
+  rect(620, 0, 6, 500);
   
   fill(cookButton);
   rect(col1x, row1y, buttonW, buttonH);
@@ -134,7 +135,7 @@ void draw() {
   text("CLOCK", col4x + 11, row3y + 27);
   text("TIMER", col4x + 14, row4y + 27);
   text("ROTATE", col4x + 5, row5y + 27);
-  text("LOCK", col4x + 16, row6y + 27);
+  text("OPEN", col4x + 16, row6y + 27);
 }
 
 void update(int x, int y) {
