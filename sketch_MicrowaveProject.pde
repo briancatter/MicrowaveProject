@@ -509,11 +509,11 @@ void mouseReleased() {
 }
 
 // Turns user input into proper int
-int arrayToNum(int[] in, int len) {
+int arrayToNum(int[] inArray, int len) {
   int ret = 0;
   
   for(int i = 1; i < len; i++) {
-    ret += pow(10, i-1) * in[len-i];
+    ret += pow(10, i-1) * inArray[len-i];
   }
   
   return ret;
