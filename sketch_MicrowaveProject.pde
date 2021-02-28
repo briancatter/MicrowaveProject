@@ -8,9 +8,11 @@ int row1y, row2y, row3y, row4y, row5y, row6y, row7y;
 int buttonW, buttonH;
 int screenX, screenY, screenW, screenH;
 color numButton, cookButton, setButton;
-color numHighlight, cookHighlight, setHighlight;
+color highlight;
 color screen;
 color door;
+int savedTime, totalTime, passedTime;
+boolean resetHighlight;
 
 void setup() {
   size(1000, 500);
@@ -19,9 +21,7 @@ void setup() {
   numButton = color(150, 150, 150);
   cookButton = color(150, 50, 50);
   setButton = color(50, 100, 150);
-  numHighlight = color(60, 120, 180);
-  cookHighlight = color(180, 120, 60);
-  setHighlight = color(120, 120, 120);
+  highlight = color(180, 120, 60);
   screen = color(0, 0, 0);
   door = color(100, 100, 100);
   
@@ -62,39 +62,47 @@ void draw() {
   rect(screenX, screenY, screenW, screenH);
   rect(620, 0, 6, 500);
   
-  fill(cookButton);
-  rect(col1x, row1y, buttonW, buttonH);
-  rect(col2x, row1y, buttonW, buttonH);
-  rect(col3x, row1y, buttonW, buttonH);
-  rect(col4x, row1y, buttonW, buttonH);
-  rect(col1x, row2y, buttonW, buttonH);
-  rect(col2x, row2y, buttonW, buttonH);
-  rect(col3x, row2y, buttonW, buttonH);
-  rect(col4x, row2y, buttonW, buttonH);
-  rect(col1x, row7y, buttonW, buttonH);
-  rect(col2x, row7y, buttonW, buttonH);
-  rect(col3x, row7y, buttonW, buttonH);
-  rect(col4x, row7y, buttonW, buttonH);
+  if (resetHighlight) {
   
-  fill(numButton);
-  rect(col1x, row3y, buttonW, buttonH);
-  rect(col2x, row3y, buttonW, buttonH);
-  rect(col3x, row3y, buttonW, buttonH);
-  rect(col1x, row4y, buttonW, buttonH);
-  rect(col2x, row4y, buttonW, buttonH);
-  rect(col3x, row4y, buttonW, buttonH);
-  rect(col1x, row5y, buttonW, buttonH);
-  rect(col2x, row5y, buttonW, buttonH);
-  rect(col3x, row5y, buttonW, buttonH);
-  rect(col2x, row6y, buttonW, buttonH);
-  rect(col1x, row6y, buttonW, buttonH);
-  rect(col3x, row6y, buttonW, buttonH);
+    fill(cookButton);
+    rect(col1x, row1y, buttonW, buttonH);
+    rect(col2x, row1y, buttonW, buttonH);
+    rect(col3x, row1y, buttonW, buttonH);
+    rect(col4x, row1y, buttonW, buttonH);
+    rect(col1x, row2y, buttonW, buttonH);
+    rect(col2x, row2y, buttonW, buttonH);
+    rect(col3x, row2y, buttonW, buttonH);
+    rect(col4x, row2y, buttonW, buttonH);
+    rect(col1x, row7y, buttonW, buttonH);
+    rect(col2x, row7y, buttonW, buttonH);
+    rect(col3x, row7y, buttonW, buttonH);
+    rect(col4x, row7y, buttonW, buttonH);
+    
+    fill(numButton);
+    rect(col1x, row3y, buttonW, buttonH);
+    rect(col2x, row3y, buttonW, buttonH);
+    rect(col3x, row3y, buttonW, buttonH);
+    rect(col1x, row4y, buttonW, buttonH);
+    rect(col2x, row4y, buttonW, buttonH);
+    rect(col3x, row4y, buttonW, buttonH);
+    rect(col1x, row5y, buttonW, buttonH);
+    rect(col2x, row5y, buttonW, buttonH);
+    rect(col3x, row5y, buttonW, buttonH);
+    rect(col2x, row6y, buttonW, buttonH);
+    rect(col1x, row6y, buttonW, buttonH);
+    rect(col3x, row6y, buttonW, buttonH);
+    
+    fill(setButton);
+    rect(col4x, row3y, buttonW, buttonH);
+    rect(col4x, row4y, buttonW, buttonH);
+    rect(col4x, row5y, buttonW, buttonH);
+    rect(col4x, row6y, buttonW, buttonH);
   
-  fill(setButton);
-  rect(col4x, row3y, buttonW, buttonH);
-  rect(col4x, row4y, buttonW, buttonH);
-  rect(col4x, row5y, buttonW, buttonH);
-  rect(col4x, row6y, buttonW, buttonH);
+  }
+  
+  else {
+    
+  }
   
   // Magic numbers for text centering
   
@@ -140,4 +148,131 @@ void draw() {
 
 void update(int x, int y) {
   
+  fill(highlight);
+  
+  if(checkMouse(col1x, row1y, x, y)) {
+    rect(col1x, row1y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row2y, x, y)) {
+    rect(col1x, row2y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row3y, x, y)) {
+    rect(col1x, row3y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row4y, x, y)) {
+    rect(col1x, row4y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row5y, x, y)) {
+    rect(col1x, row5y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row6y, x, y)) {
+    rect(col1x, row6y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col1x, row7y, x, y)) {
+    rect(col1x, row7y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row1y, x, y)) {
+    rect(col2x, row1y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row2y, x, y)) {
+    rect(col2x, row2y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row3y, x, y)) {
+    rect(col2x, row3y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row4y, x, y)) {
+    rect(col2x, row4y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row5y, x, y)) {
+    rect(col2x, row5y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row6y, x, y)) {
+    rect(col2x, row6y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col2x, row7y, x, y)) {
+    rect(col2x, row7y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row1y, x, y)) {
+    rect(col3x, row1y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row2y, x, y)) {
+    rect(col3x, row2y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row3y, x, y)) {
+    rect(col3x, row3y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row4y, x, y)) {
+    rect(col3x, row4y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row5y, x, y)) {
+    rect(col3x, row5y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row6y, x, y)) {
+    rect(col3x, row6y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col3x, row7y, x, y)) {
+    rect(col3x, row7y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row1y, x, y)) {
+    rect(col4x, row1y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row2y, x, y)) {
+    rect(col4x, row2y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row3y, x, y)) {
+    rect(col4x, row3y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row4y, x, y)) {
+    rect(col4x, row4y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row5y, x, y)) {
+    rect(col4x, row5y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row6y, x, y)) {
+    rect(col4x, row6y, buttonW, buttonH);
+    
+  }
+  else if(checkMouse(col4x, row7y, x, y)) {
+    rect(col4x, row7y, buttonW, buttonH);
+    
+  }
+  else {
+    resetHighlight = true;
+    return;
+  }
+  resetHighlight = false;
+  return;
+}
+
+boolean checkMouse(int col, int row, int x, int y) {
+  if(x > col && x < col + 75 && y > row && y < row + 40) {
+    return true;
+  }
+  return false;
 }
