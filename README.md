@@ -25,7 +25,7 @@ A mistake I find myself making all the time is confusing the 'Timer' button with
 
 Below is my prototype design for a new microwave:
 
-<img src="https://github.com/briancatter/p1BrianCatter/blob/main/MicrowavePrototype.png" alt="Prototype Microwave Design">
+<img src="https://github.com/briancatter/p1BrianCatter/blob/main/MicrowavePrototype.png" alt="Prototype Microwave Design" width="700" height="350">
 
 As you can see, buttons are no longer grouped by separation, but by color. The number buttons, as the most easily identifiable, are colored a neutral grey, while the buttons directly related to cooking are a warm red color, and the settings buttons are a cool blue. Using this new design, the eyes are drawn naturally to buttons closely related to the user's use case. The 30 seconds button has been relocated next to the zero button, and is the only red button in the area, making it immediately identifiable. The red buttons above the numbers are more seldom used, and as such are in a larger grouping, separated from the more useful buttons by the blue settings buttons. Finally, the start and stop buttons are the same neutral grey as the numbers, but have increased in size, ensuring they stand out more so than any other button. After completing this design, I began the process of creating an interactible interface.
 
