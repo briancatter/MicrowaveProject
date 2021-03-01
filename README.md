@@ -7,4 +7,4 @@
 
 The microwave I use at home looks like this:
 
-![Real Microwave](https://github.com/briancatter/p1BrianCatter/blob/main/MicrowaveInterface.jpg)
+![Real Microwave](https://github.com/briancatter/p1BrianCatter/blob/main/MicrowaveInterface.jpg =500x250)
